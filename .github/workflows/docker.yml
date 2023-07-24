@@ -21,7 +21,8 @@ jobs:
         uses: cypress-io/github-action@v5
         with:
           runTests: false
-      # report machine parameters
+      - run: yarn test:unit:ci
+      - run: yarn build:ci
 
       - name: Save build folder
         uses: actions/upload-artifact@v3

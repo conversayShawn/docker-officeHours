@@ -5,13 +5,14 @@ ARG CYPRESS_VERSION='12.1.0'
 # Use official Cypress factory as base image
 FROM cypress/factory
 
-# Set the working directory inside the container (it doesn't have to match the app name)
-# WORKDIR /cypress-realworld-app
-
+# Install yarn
 RUN npm install -g yarn
 
-# Copy the rest of the application code
-# COPY . .
+# Set the working directory inside the container (it doesn't have to match the app name)
+WORKDIR /cypress-realworld-app
+
+# Copy the package.json and yarn.lock files to the working directory
+COPY  . .
 
 # Start the development server
 CMD ["yarn", "test:headless"]

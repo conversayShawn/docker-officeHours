@@ -9,7 +9,7 @@ jobs:
   install:
     runs-on: ubuntu-latest
     container:
-      image: conversayshawn/factory
+      image: conversayshawn/factory:latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -43,7 +43,7 @@ jobs:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     container:
-      image: conversayshawn/factory
+      image: conversayshawn/factory:latest
     needs: install
     strategy:
       fail-fast: false
@@ -83,7 +83,7 @@ jobs:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     container:
-      image: conversayshawn/factory
+      image: conversayshawn/factory:latest
     needs: install
     strategy:
       fail-fast: false
@@ -124,7 +124,7 @@ jobs:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     container:
-      image: conversayshawn/factory
+      image: conversayshawn/factory:latest
     needs: install
     strategy:
       fail-fast: false
@@ -164,7 +164,7 @@ jobs:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     container:
-      image: conversayshawn/factory
+      image: conversayshawn/factory:latest
     needs: install
     strategy:
       fail-fast: false

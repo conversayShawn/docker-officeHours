@@ -8,6 +8,9 @@ FROM cypress/factory
 # Install yarn
 RUN npm install -g yarn
 
+# Install cypress version
+RUN yarn add cypress@${CYPRESS_VERSION}
+
 # Set the working directory inside the container (it doesn't have to match the app name)
 WORKDIR /cypress-realworld-app
 

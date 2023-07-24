@@ -8,14 +8,11 @@ FROM cypress/factory
 # Install yarn
 RUN npm install -g yarn
 
-# Install cypress version
-RUN yarn add cypress@${CYPRESS_VERSION}
-
 # Set the working directory inside the container (it doesn't have to match the app name)
-# WORKDIR /cypress-realworld-app
+WORKDIR /cypress-realworld-app
 
-# # Copy the package.json and yarn.lock files to the working directory
-# COPY  . .
+# Copy the package.json and yarn.lock files to the working directory
+COPY  . .
 
 # Start the development server
 CMD ["cypress", "run"]

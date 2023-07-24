@@ -15,4 +15,4 @@ WORKDIR /cypress-realworld-app
 COPY  . .
 
 # Start the development server
-CMD ["yarn", "test:headless"]
+CMD ["cypress", "run"]

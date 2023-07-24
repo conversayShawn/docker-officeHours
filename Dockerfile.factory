@@ -12,7 +12,7 @@ RUN npm install -g yarn
 RUN yarn add cypress@${CYPRESS_VERSION}
 
 # Set the working directory inside the container (it doesn't have to match the app name)
-WORKDIR /cypress-realworld-app
+# WORKDIR /cypress-realworld-app
 
 # # Copy the package.json and yarn.lock files to the working directory
 # COPY  . .

@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  rwa:
+    build:
+      context: .
+      dockerfile: Dockerfile.rwa
+    image: conversayshawn/rwa
+
+  factory:
+    build:
+      context: .
+      dockerfile: Dockerfile.factory
+    image: conversayshawn/factory

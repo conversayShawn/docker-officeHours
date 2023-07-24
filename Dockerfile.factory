@@ -1,0 +1,17 @@
+# Set the args you want the Cypress image
+ARG CHROME_VERSION='107.0.5304.121-1'
+ARG CYPRESS_VERSION='12.1.0'
+
+# Use official Cypress factory as base image
+FROM cypress/factory
+
+# Set the working directory inside the container (it doesn't have to match the app name)
+# WORKDIR /cypress-realworld-app
+
+RUN npm install -g yarn
+
+# Copy the rest of the application code
+# COPY . .
+
+# Start the development server
+CMD ["yarn", "test:headless"]

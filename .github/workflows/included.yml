@@ -1,4 +1,4 @@
-name: Main Tests
+name: Included Tests
 
 on:
   push:
@@ -9,11 +9,13 @@ env:
   CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
   CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  COMMIT_INFO_MESSAGE: ${{ github.event.head_commit.message }} - Main.yml
+  COMMIT_INFO_MESSAGE: ${{ github.event.head_commit.message }} - Included.yml
 
 jobs:
   install:
     runs-on: ubuntu-22.04
+    container:
+      image: cypress/included:12.15
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -37,6 +39,8 @@ jobs:
   ui-chrome-tests:
     timeout-minutes: 15
     runs-on: ubuntu-22.04
+    container:
+      image: cypress/included:12.15
     needs: install
     strategy:
       fail-fast: false
@@ -71,6 +75,8 @@ jobs:
   ui-chrome-mobile-tests:
     timeout-minutes: 15
     runs-on: ubuntu-22.04
+    container:
+      image: cypress/included:12.15
     needs: install
     strategy:
       fail-fast: false

@@ -1,5 +1,5 @@
 # Set the args you want the Cypress image
-# ARG CHROME_VERSION='107.0.5304.121-1'
+ARG NODE_VERSION='16.17.0'
 ARG CYPRESS_VERSION='12.1.0'
 
 # Use official Cypress factory as base image
@@ -8,5 +8,15 @@ FROM cypress/factory
 # Set the working directory inside the container (it doesn't have to match the app name)
 WORKDIR /cypress-realworld-app
 
+# Install yarn
+RUN npm install -g yarn
+
+# Install deps
+RUN yarn
+
 # Copy the package.json and yarn.lock files to the working directory
-COPY  . .
+COPY  ./package.json .
+COPY  ./cypress.config.js .
+COPY  ./cypress ./cypress
+
+ENTRYPOINT [ "yarn", "cypress", "run" ]
